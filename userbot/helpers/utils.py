@@ -4,15 +4,11 @@ from telethon.tl.tlobject import TLObject
 from telethon.tl.types import MessageEntityPre
 from telethon.utils import add_surrogate
 
-from ..Config import Config
+from userbot.uniborgConfig import Config
 
 
 def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
-
-
-def htmlmentionuser(name, userid):
-    return f"<a href='tg://user?id={userid}'>{name}</a>"
 
 
 async def reply_id(event):

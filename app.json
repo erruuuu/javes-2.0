@@ -1,7 +1,7 @@
 {
-  "name": "Catuserbot",
-  "description": "A telethon userbot based on snapdragon code(xtratgbot) .Easy to use and friendly bot . Maintained by Sandeep ",
-  "logo": "https://telegra.ph/file/3d60313110c58684b31ea.jpg",
+  "name": "Javes-2.0",
+  "description": "Javes 2.0 is a Telegram userbot that running on Python , It help you to manage your telegram easily ",
+  "logo": "https://i.imgur.com/ATSG4w3.png",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,125 +9,203 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/sandy1709/catuserbot/",
-  "website": "#TODO",
-  "success_url": "#TODO",
+  "repository": "https://github.com/Javes786/javes-2.0",
+  "website": "https://t.me/javes05",
+  "success_url": "https://t.me/criminal786",
+  "stack": "container",
   "env": {
-    "ENV": {
-      "description": "Setting this to ANYTHING will enable heroku.",
-      "value": "ANYTHING"
+    "TELEGRAM_API_KEY": {
+      "description": "Get this value from my.telegram.org. Don't Steal May Your Account Get ban.[IMPORTANT]",
+      "value": ""
     },
-    "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Where downloaded files will go.",
-      "value": "./DOWNLOADS/",
+    "TELEGRAM_API_HASH": {
+      "description": "Get this value from my.telegram.org. Don't Steal may Your Account Get ban.[IMPORTANT]",
+      "value": ""
+    },
+    "TELEGRAM_STRING_SESSION": {
+      "description": "Get this value by running [python3 string_session.py] in Termux or heroku[IMPORTANT]"    
+    },
+    "HEROKU_APIKEY": {
+      "description": "very important for !update command to make javes 2.0 up-to-date , get it from 'https://dashboard.heroku.com/account.",
+      "value": ""   
+    },
+    "HEROKU_APPNAME": {
+      "description": "enter this app name again here, very important for !update command to make javes 2.0 up-to-date ,",
+      "value": ""
+      
+     },
+    "GENIUS_API_TOKEN": {
+      "description": "need for !lyrics comand , Get your own api token from https://genius.com/developers",      
+       "value": "Enter genius api here if you need ",
+       "required": false
+      
+      
+    },
+    "COUNTRY": {
+      "description": "Set your Country to be used in the !time and !date commands.",
+      "value": "India",
       "required": false
     },
-    "ALIVE_NAME": {
-      "description": "give your name",
-      "value": ""
+    "TZ_NUMBER": {
+      "description": "Change this value in case your country has multiple Time Zones.",
+      "value": "1",
+      "required": false
     },
-    "APP_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
-    },
-    "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
-    },
-    "STRING_SESSION": {
-      "description": "Get this value by running python3 telesetup.py locally",
-      "value": ""
-    },
-    "TG_BOT_USER_NAME_BF_HER": {
-      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the username of your bot",
-      "value": ""
-    },
-    "TG_BOT_TOKEN_BF_HER": {
-      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the token of your bot.Worth it. Get it.",
-      "value": ""
-    },
-    "HEROKU_API_KEY": {
-      "description": "Required for updating the bot and other stuff get it from https://dashboard.heroku.com/account",
+    "FULL_SUDO": {
+      "description": "if you set it true sudo users can access your full datas ",
       "value": "",
       "required": false
     },
-    "HEROKU_APP_NAME": {
-      "description": "YOUR app name ",
-      "value": "",
+    "PROFILE_PP": {
+      "description": "Your photo link for !autopic command",
+      "value": "https://telegra.ph/file/edc2836f4353c6b01bcb4.jpg",
+      "required": false
+     
+    
+    
+    },
+    "OPEN_WEATHER_MAP_APPID": {
+      "description": "need for !weather command, (API key)from https://api.openweathermap.org",
+      "value": "Enter api here if you need ",
+      "required": false
+       
+    },
+    "BOTLOG": {
+      "description": "Recommed to true ,BOTLOG_CHATID must be filled correct if you set it true",
+      "value": "False",
       "required": false
     },
-    "DEFAULT_BIO": {
-      "description": "Your bio here note bio must have only 70characters or less.",
-      "value": "",
+    "BOTLOG_CHATID": {
+      "description": "Important for wark some plugins,bot logs , make super group with @missrose_bot then type /id to get this value",
+      "value": "0",
+      "required": true
+    },
+    "CONSOLE_LOGGER_VERBOSE": {
+      "description": "BOTLOG_CHATID must be filled correct if you set it true",
+      "value": "False",
       "required": false
-    },    
-    "MAX_FLOOD_IN_P_M_s": {
-      "description": "Maximum number of messages a person can send in pm before getting blocked. Value must be an integer. 6 by default.",
-      "value": "6",
+      
+    },
+    "PM_PROTECTOR": {
+      "description": "Prevent unknown people to spam your pm , type !allow to allow them to pm",
+      "value": "true",
+      "required": false
+    },
+    "YOUTUBE_API_KEY": {
+      "description": "YouTube Data API Key for !youtube command. Get from https://console.cloud.google.com",
+      "value": "Enter api here if you need ",
       "required": false
     },
     "OCR_SPACE_API_KEY": {
-      "description": "Required for OCR functionality. Get from https://ocr.space/ocrapi",
-      "value": "",
+      "description": "OCR API Key for !read (read photo's text)command. Get from https://ocr.space/ocrapi",
+      "value": "Enter api here if you need ",
       "required": false
     },
     "REM_BG_API_KEY": {
-      "description": "Required for Removing image background functionality. Get from https://www.remove.bg/",
-      "value": "",
+      "description": "API Key for .rbg(remove background picture) command. Get from https://www.remove.bg/api",
+      "value": "Enter api here if you need ",
       "required": false
     },
-    "ALIVE_PIC": {
-      "description": "the pic that to show in your alive message url.",
-      "value": "",
+    "ANTI_SPAMBOT": {
+      "description": "BOTLOG_CHATID must be filled correct if you set it true",
+      "value": "False",
       "required": false
     },
-    "AUTONAME": {
-      "description": "for .autoname command",
-      "value": "",
+    "ANTI_SPAMBOT_SHOUT": {
+      "description": "BOTLOG_CHATID must be filled correct if you set it true",
+      "value": "False",
       "required": false
     },
+    "TMP_DOWNLOAD_DIRECTORY": {
+      "description": "for use GDrive, .download etc..)",
+      "value": "./downloads/",
+      "required": false
+    },
+    "CLEAN_WELCOME": {
+      "description": "When a new person joins, the old welcome message is deleted.",
+      "value": "True",
+      "required": false
+          
+      },
+    "ALIVE_S_MESSAGE": {
+      "description": "Edit if you want",
+      "value": "Javes 2.0 is Alive with Necessary Dynos",
+      "required": false
+      
+      },
+    "ALIVE_E_MESSAGE": {
+      "description": "Edit if you want",
+      "value": "My Databases functioning normally!!",
+      "required": false
+      
+      },
+    "BIO_MESSAGE": {
+      "description": "custom bio message while u using !autobio command",
+      "value": "Current date",
+      "required": false
+      
+      },
+    "JAVES_NAME": {
+      "description": "You can edit bot's name",
+      "value": "Javes 2.0 ",
+      "required": false
+    
+    },
+    "PM_MESSAGE": {
+      "description": "you can edit what pm_protecter message!",
+      "value": "Hello Sir, I can't allow you to my master's PM without his permissions please be patient, Thankyou",
+      "required": false
+      
+    },
+    "SUDO_USERS": {
+      "description": "give sudo user's id , it can control your javes, you can add multiple sudo users id by space , sudo users cant access your privacy untill you on full_sudo",
+      "value": "",
+      "required": false
+            
+      
+    },
+    "AFK_MESSAGE": {
+      "description": "Edit if you want!",
+      "value": "Hello Sir, My master offline just leave your message, Thankyou!",
+      "required": false
+           
+      
+    },
+    "BLOCK_MESSAGE": {
+      "description": "Edit if you want!",
+      "value": "I am not going to allow you to spam My master's PM, You have been blocked!",
+      "required": false
+      
+    
+    },
+    "YOUR_SHORT_NAME": {
+      "description": "Name to show in !javes message!",
+      "value": "your name or username like @criminal786",
+      "required": true
+      },
     "LYDIA_API_KEY": {
-      "description": "Needed for Lydia AI. Follow https://telegra.ph/Lydia-09-05 to get your API.",
-      "value": "",
+      "description": "need for auto replay (lydia) future get api key from https://coffeehouse.intellivoid.net/",
+      "value": "enter lydia api key here",
+      "required": false
+      
+    
+    },
+    "WEATHER_DEFCITY": {
+      "description": "Set the default city for the userbot's !weather module.",
+      "value": "enter your city ",
       "required": false
     },
-    "UB_BLACK_LIST_CHAT": {
-      "description": "set blacklist_chats where you do not want userbot features",
-      "value": "-1051754159",
-      "required": false
-    },
-    "DOWNLOAD_PFP_URL_CLOCK": {
-      "description": "Needed for autopic module. A url that is a preview link of your Profile Pic",
-      "value": "",
-      "required": false
-    },
-    "TZ": {
-      "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
-      "value": "Asia/Kolkata",
+    "LOGSPAMMER": {
+      "description": "BOTLOG_CHATID must be filled correct if you set it true",
+      "value": "false",
       "required": false
     }
   },
-  "addons": [{
-    "plan": "heroku-postgresql",
-    "options": {
-      "version": "12"
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+      }
     }
-  }],
-  "buildpacks": [{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/amivin/aria2-heroku.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
-  },{
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  },{
-    "url": "https://github.com/heroku/heroku-buildpack-apt.git"
-  },{
-    "url": "https://github.com/chrismytton/heroku-buildpack-jq"
-  },{
-    "url": "heroku/python"
-  }]
+  ]
 }
