@@ -227,12 +227,12 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('main', origin.refs.master)
+        repo.create_head('master', origin.refs.master)
         repo.heads.master.set_tracking_branch(origin.refs.master)
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'main':
+    if ac_br != 'master':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
@@ -315,7 +315,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/main", force=True)
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
         except GitCommandError as error:
             await ups.edit(f'{txt}\n`Here is the error log:\n{error}`')
             repo.__del__()
@@ -1029,12 +1029,12 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('main', origin.refs.master)
+        repo.create_head('master', origin.refs.master)
         repo.heads.master.set_tracking_branch(origin.refs.master)
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'main':
+    if ac_br != 'master':
         await ups.reply(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
@@ -1117,7 +1117,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/main", force=True)
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
         except GitCommandError as error:
             await ups.reply(f'{txt}\n`Here is the error log:\n{error}`')
             repo.__del__()
