@@ -5,7 +5,7 @@ import asyncio
 from userbot import bot as javes
 from userbot.utils import admin_cmd
 
-@javes.on(admin_cmd("chaos2"))
+@javes.on(admin_cmd("flood"))
 async def _(event):
     if event.fwd_from:
         return
