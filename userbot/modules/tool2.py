@@ -6,6 +6,7 @@ from datetime import datetime, date
 from telegraph import Telegraph, upload_file, exceptions
 from userbot import (TEMP_DOWNLOAD_DIRECTORY, BOTLOG_CHATID, CMD_HELP, bot, client)
 from userbot.events import javes05, rekcah05
+from userbot.javes_main.heroku_var import *
 try:
   import pyfiglet
 except:
@@ -33,7 +34,7 @@ today = date.today()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
-SCREEN_SHOT_LAYER_ACCESS_KEY = Config.SCREEN_SHOT_KEY
+
 
 def resize_image(image):
     im = Image.open(image)
@@ -535,25 +536,23 @@ Answers: \n""".format(closed_status, question)
 @javes.on(rekcah05(pattern=f"goss(.*)", allow_sudo=True))
 @javes05(outgoing=True, pattern="^!goss(.*)")
 async def _(event):
-    sender = await event.get_sender() ; me = await event.client.get_me()
-    if not sender.id == me.id:
-        rkp = await event.reply("`processing`")
-    else:
-    	rkp = await event.edit("`processing`")
-    if SCREEN_SHOT_LAYER_ACCESS_KEY is None:
-        await rkp.edit("Add var SCREEN_SHOT_KEY , API key from https://screenshotlayer.com/product !")
+    if event.fwd_from:
         return
-    await rkp.edit("Processing ...")
+    if Config.SCREEN_SHOT_LAYER_ACCESS_KEY is None:
+        await event.edit("Need to get an API key from https://screenshotlayer.com/product \nModule stopping!")
+        return
+    await event.edit("Processing ...")
     sample_url = "https://api.screenshotlayer.com/api/capture?access_key={}&url={}&fullpage={}&viewport={}&format={}&force={}"
     input_str = event.pattern_match.group(1)
     response_api = requests.get(sample_url.format(
-        SCREEN_SHOT_LAYER_ACCESS_KEY,
+        Config.SCREEN_SHOT_LAYER_ACCESS_KEY,
         input_str,
         "1",
         "2560x1440",
         "PNG",
         "1"
-    ))    
+    ))
+    # https://stackoverflow.com/a/23718458/4723940
     contentType = response_api.headers['content-type']
     if "image" in contentType:
         with io.BytesIO(response_api.content) as screenshot_image:
@@ -566,11 +565,12 @@ async def _(event):
                     force_document=True,
                     reply_to=event.message.reply_to_msg_id
                 )
-                await rkp.delete()
+                await event.delete()
             except Exception as e:
-                await rkp.edit(str(e))
+                await event.edit(str(e))
     else:
-        await rkp.edit(response_api.text)
+        await event.edit(response_api.text)
+
 
 
 
