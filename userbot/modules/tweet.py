@@ -19,7 +19,7 @@ import json
 from PIL import Image, ImageEnhance, ImageOps
 from userbot import CMD_HELP
 from userbot.events import register
-#from userbot.helpers.functions import moditweet
+from userbot.helpers.functions import moditweet
 
 EMOJI_PATTERN = re.compile(
     "["
@@ -135,7 +135,7 @@ async def trump(event):
     await purge()
 
 
-'''@register(outgoing=True, pattern=r"^\.modi(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.modi(?: |$)(.*)")
 async def modi(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -153,7 +153,7 @@ async def modi(event):
     img = await moditweet(text)
     await event.client.send_file(event.chat_id, img, reply_to=reply_to_id)
     await event.delete()
-    await purge()'''
+    await purge()
 
 async def miatweet(text):
         r = requests.get(
