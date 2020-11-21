@@ -13,6 +13,7 @@ except:
 from io import BytesIO
 from asyncio import sleep
 from telethon.tl import functions, types
+from userbot.javes_main.heroku_var import Config
 from telethon.errors import PhotoInvalidDimensionsError
 from telethon.tl.functions.messages import SendMediaRequest
 from userbot.events import humanbytes, progress, time_formatter
@@ -32,7 +33,7 @@ today = date.today()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
-SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_KEY", None)
+SCREEN_SHOT_LAYER_ACCESS_KEY = Config.SCREEN_SHOT_KEY
 
 def resize_image(image):
     im = Image.open(image)
