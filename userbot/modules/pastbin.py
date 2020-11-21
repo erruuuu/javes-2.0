@@ -12,7 +12,9 @@ import userbot
 from userbot import *
 #from userbot.uniborgConfig import Config
 from userbot.utils import admin_cmd
-
+from userbot.javes_main.heroku_var import Config
+from userbot.javes_main.heroku_var import config
+from userbot.javes_main.heroku_var import Var
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
 )
