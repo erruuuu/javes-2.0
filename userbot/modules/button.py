@@ -12,6 +12,7 @@ from userbot.javes_main.heroku_var import Var
 from userbot import bot as borg
 try:
   from userbot import tebot as tgbot
+  from userbot import tebot as bot
 except:
    tebot = None
    print("no bots")
