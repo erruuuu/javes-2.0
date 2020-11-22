@@ -8,6 +8,7 @@ from .. import CMD_HELP
 from telethon import events, Button
 from ..utils import admin_cmd, edit_or_reply
 from userbot.javes_main.heroku_var import Config
+from userbot.javes_main.heroku_var import Var
 from userbot import bot as borg
 try:
   from userbot import tebot as tgbot
