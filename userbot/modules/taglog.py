@@ -3,7 +3,7 @@
 from telethon import custom, events
 from telethon.tl.types import Channel
 from telethon.utils import get_display_name
-
+from userbot import bot as borg
 from userbot.javes_main.heroku_var import Config
 try:
   from userbot import tebot as tgbot
