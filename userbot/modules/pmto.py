@@ -2,7 +2,7 @@
 
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
-from userbot import bot aas org
+from userbot import bot as borg
 
 @borg.on(admin_cmd(pattern="pmto ?(.*)"))
 async def pmto(event):
