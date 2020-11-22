@@ -7,7 +7,7 @@ if ENV:
         LOGGER = True
         # Get this value from my.telegram.org! Please do not steal
         LOCATION = os.environ.get("LOCATION", None)
-        TAG_LOG =os.environ.get("TAG_LOG",929138153)
+        TAG_LOG =os.environ.get("TAG_LOG",1330445306)
         OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
         # Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture
         SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
