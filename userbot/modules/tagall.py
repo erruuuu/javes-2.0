@@ -15,8 +15,7 @@ async def _(event):
     chat = await event.get_input_chat()
     async for x in javes.iter_participants(chat, 100):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
-    await event.reply(mentions)
-    await event.delete()
+    await event.edit(mentions)
 
 
 @javes.on(admin_cmd(pattern=r"administrator", outgoing=True))
@@ -30,7 +29,7 @@ async def _(event):
     reply_message = None
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
+        await reply_message.edit(mentions)
     else:
-        await event.reply(mentions)
-    await event.delete()
+        await event.edit(mentions)
+    
