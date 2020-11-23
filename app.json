@@ -219,7 +219,7 @@
       "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and Turn of inline Mode on bot settings. Get it.",
       "value": "False",
       "required": true
-    },
+    }
   },
   "addons": [
     {
