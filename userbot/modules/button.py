@@ -99,7 +99,7 @@ async def _(event):
         return
     catinput = "Inline buttons " + catinput
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
-    results = await bot.inline_query(tgbotusername, catinput)
+    results = await tgbot.inline_query(tgbotusername, catinput)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
 
