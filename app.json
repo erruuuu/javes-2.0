@@ -200,7 +200,7 @@
       "value": "false",
       "required": false
     },
-    "TAG_LOG ": {
+    "TAG_LOG": {
       "description": "Important for wark some plugins,taglogs logs , make super group with @missrose_bot then type /id to get this value then add your inline bot if u have set later on add some vars TG_BOT_USER_NAME_BF_HER , TG_BOT_TOKEN_BF_HER ,INLINE_MODE=True,then add your inline bot in yout personal group",
       "value": "-1001422622196",
       "required": true
