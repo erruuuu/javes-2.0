@@ -9,9 +9,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/Javes786/javes-2.0",
-  "website": "https://t.me/javes05",
-  "success_url": "https://t.me/criminal786",
+  "repository": "https://github.com/Sh1vam/javes-2.0",
+  "website": "https://t.me/plugines",
+  "success_url": "https://t.me/Shivam_Patel",
   "stack": "container",
   "env": {
     "TELEGRAM_API_KEY": {
@@ -199,7 +199,27 @@
       "description": "BOTLOG_CHATID must be filled correct if you set it true",
       "value": "false",
       "required": false
-    }
+    },
+    "TAG_LOG ": {
+      "description": "Important for wark some plugins,taglogs logs , make super group with @missrose_bot then type /id to get this value then add your inline bot if u have set later on add some vars TG_BOT_USER_NAME_BF_HER , TG_BOT_TOKEN_BF_HER ,INLINE_MODE=True,then add your inline bot in yout personal group",
+      "value": "-1001422622196",
+      "required": true
+    },
+    "TG_BOT_USER_NAME_BF_HER": {
+      "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and get the username of your bot",
+      "value": ""
+      "required": true
+    },
+    "TG_BOT_TOKEN_BF_HER": {
+      "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and get the token of your bot. And Don't Forget To Turn of inline Mode on bot settings. Get it.",
+      "value": ""
+      "required": true
+    },
+    "INLINE_MODE": {
+      "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and Turn of inline Mode on bot settings. Get it.",
+      "value": "True"
+      "required": true
+    },
   },
   "addons": [
     {
