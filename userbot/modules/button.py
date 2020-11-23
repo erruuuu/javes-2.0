@@ -9,19 +9,28 @@ from telethon import events, Button
 from ..utils import admin_cmd, edit_or_reply
 from userbot.javes_main.heroku_var import Config
 from userbot.javes_main.heroku_var import Var
-from userbot import bot as borg
+from userbot import bot 
 try:
   from userbot import tebot as tgbot
-  from userbot import tebot as bot
+  #from userbot import tebot as bot
 except:
    tebot = None
    print("no bots")
    pass
-# regex obtained from: https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
+#    Copyright (C) 2020  sandeep.n(π.$)
+# button post makker for catuserbot thanks to uniborg for the base
+# by @sandy1709 (@mrconfused)
+
+# regex obtained from:
+# https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
-@borg.on(admin_cmd(pattern=r"cbutton(?: |$)(.*)", outgoing=True))
+
+@bot.on(admin_cmd(pattern=r"cbutton(?: |$)(.*)", outgoing=True))
+
 async def _(event):
+    if event.fwd_from:
+        return
     chat = event.chat_id
     reply_message = await event.get_reply_message()
     if reply_message:
@@ -42,7 +51,7 @@ async def _(event):
         if n_escapes % 2 == 0:
             # create a thruple with button label, url, and newline status
             buttons.append((match.group(2), match.group(3), bool(match.group(4))))
-            note_data += markdown_note[prev:match.start(1)]
+            note_data += markdown_note[prev : match.start(1)]
             prev = match.end(1)
         # if odd, escaped -> move along
         else:
@@ -53,9 +62,8 @@ async def _(event):
     message_text = note_data.strip()
     tl_ib_buttons = build_keyboard(buttons)
     tgbot_reply_message = None
-    if reply_message:
-        if reply_message.media:
-            tgbot_reply_message = await borg.download_media(reply_message.media)
+    if reply_message and reply_message.media:
+        tgbot_reply_message = await event.client.download_media(reply_message.media)
     await tgbot.send_message(
         entity=chat,
         message=message_text,
@@ -63,13 +71,21 @@ async def _(event):
         file=tgbot_reply_message,
         link_preview=False,
         buttons=tl_ib_buttons,
-        silent=True
+        silent=True,
     )
     await event.delete()
     if tgbot_reply_message:
         os.remove(tgbot_reply_message)
-@borg.on(admin_cmd(pattern=r"ibutton( (.*)|$)", outgoing=True))
+
+
+# Helpers
+
+
+@bot.on(admin_cmd(pattern=r"ibutton( (.*)|$)", outgoing=True))
+
 async def _(event):
+    if event.fwd_from:
+        return
     reply_to_id = None
     catinput = "".join(event.text.split(maxsplit=1)[1:])
     if event.reply_to_msg_id:
@@ -79,14 +95,15 @@ async def _(event):
     if not catinput:
         catinput = (await event.get_reply_message()).text
     if not catinput:
-        await event.edit("`Give me something to write in bot inline`")
+        await edit_or_reply(event, "`Give me something to write in bot inline`")
         return
     catinput = "Inline buttons " + catinput
-    tgbotusername = Var.TG_BOT_USER_NAME_BF_HER
+    tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     results = await bot.inline_query(tgbotusername, catinput)
-    await results[0].click(event.chat_id, reply_to=reply_to_id)
-    await event.delete()		
-# Helpers
+    await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
+    await event.delete()
+
+
 def build_keyboard(buttons):
     keyb = []
     for btn in buttons:
