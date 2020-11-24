@@ -3,8 +3,8 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.utils import admin_cmd
-from userbot import bot as javes
-@javes.on(admin_cmd(pattern="rtwetme?(.*)"))
+from userbot import bot 
+@bot.on(admin_cmd(pattern="rtwetme?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
@@ -30,7 +30,7 @@ async def _(event):
           else: 
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
-@javes.on(admin_cmd(pattern="teletweetme(?: |$)(.*)"))
+@bot.on(admin_cmd(pattern="teletweetme(?: |$)(.*)"))
 async def tweetme(okie):
 #"""Creates random anime sticker!"""
     what = okie.pattern_match.group(1)
