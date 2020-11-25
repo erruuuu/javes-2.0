@@ -17,12 +17,7 @@ except:
    tebot = None
    print("no bots")
    pass
-#    Copyright (C) 2020  sandeep.n(π.$)
-# button post makker for catuserbot thanks to uniborg for the base
-# by @sandy1709 (@mrconfused)
 
-# regex obtained from:
-# https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
@@ -78,30 +73,6 @@ async def _(event):
         os.remove(tgbot_reply_message)
 
 
-# Helpers
-
-
-@bot.on(admin_cmd(pattern=r"ibutton( (.*)|$)", outgoing=True))
-
-async def _(event):
-    if event.fwd_from:
-        return
-    reply_to_id = None
-    catinput = "".join(event.text.split(maxsplit=1)[1:])
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
-    await event.get_reply_message()
-    # soon will try to add media support
-    if not catinput:
-        catinput = (await event.get_reply_message()).text
-    if not catinput:
-        await edit_or_reply(event, "`Give me something to write in bot inline`")
-        return
-    catinput = "Inline buttons " + catinput
-    tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
-    results = await tgbot.inline_query(tgbotusername, catinput)
-    await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
-    await event.delete()
 
 
 def build_keyboard(buttons):
@@ -119,9 +90,6 @@ CMD_HELP.update(
     \n\n**SYNTAX : **`.cbutton`\
     \n**USAGE :** Buttons must be in the format as [Name on button]<buttonurl:link you want to open> and markdown is Default to html\
     \n**EXAMPLE :** `.cbutton Testing 😂😂😎 [Google]<buttonurl:https://www.google.com> [YouTube]<buttonurl:www.youtube.com:same> `\
-    \n\n**SYNTAX : **`.ibutton`\
-    \n**USAGE :** Buttons must be in the format as [Name on button]<buttonurl:link you want to open>\
-    \n**EXAMPLE :** `.ibutton Testing 😂😂😎 [Google]<buttonurl:https://www.google.com> [YouTube]<buttonurl:www.youtube.com:same>`\
     "
     }
 )
