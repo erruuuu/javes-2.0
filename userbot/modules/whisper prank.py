@@ -1,4 +1,4 @@
-from telethon.tl.custom import Button 
+'''from telethon.tl.custom import Button 
 from telethon import events
 from telethon import sync
 import io, os
@@ -29,4 +29,4 @@ async def inlinehandler(event):
 async def ihandler(event):
     evt = event.data.decode("UTF-8")
     if evt == "read":
-        await event.edit(f"{read}")
+        await event.edit(f"{read}")'''
