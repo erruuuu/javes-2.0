@@ -25,9 +25,9 @@ async def inlinehandler(event):
     tbt = [[Button.inline('Read', b'read')]]
     reslts = bilder.article(f"{text}",text = f"{text}", buttons=tbt, link_preview=False)
     await event.answer([reslts])
+    await event.delete()
 @tebot.on(events.CallbackQuery)
 async def ihandler(event):
     evt = event.data.decode("UTF-8")
     if evt == "read":
         await event.edit(f"{read}")
-
