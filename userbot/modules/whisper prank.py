@@ -13,7 +13,7 @@ except:
 @javes05(outgoing=True,disable_errors=True, pattern="^!whisper ?(.*)")
 async def hmm(event):
     await event.delete()
-    global text,read
+    #global text,read
     tex=event.text[9:]
     text,read=tex.split(' - ')
     m = await tebot.get_me()
