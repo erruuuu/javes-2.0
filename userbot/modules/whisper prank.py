@@ -22,13 +22,12 @@ async def hmm(event):
 @tebot.on(events.InlineQuery)  
 async def inlinehandler(event):
     bilder = event.builder
-    tbt = [[Button.inline('Read', b'read'),Button.inline('Inline Read', b'inread')]]
+    tbt = [[Button.inline('Read', b'read')]]
     reslts = bilder.article(f"{text}",text = f"{text}", buttons=tbt, link_preview=False)
     await event.answer([reslts])
 @tebot.on(events.CallbackQuery)
 async def ihandler(event):
     evt = event.data.decode("UTF-8")
     if evt == "read":
-        await event.edit(f"{read}",[[Button.inline('Inline Read', b'inread')]])
-    if evt == "inread":
-        await event.answer(f"{read}")
+        await event.edit(f"{read}")
+
