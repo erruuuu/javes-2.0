@@ -219,6 +219,11 @@
       "description": "Needed for inline buttons maker. Make a bot at @BotFather and Turn of inline Mode on bot settings. Get it.",
       "value": "False",
       "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Enter same value u entered in TG_BOT_TOKEN_BF_HER",
+      "value": "False",
+      "required": true
     }
   },
   "addons": [
