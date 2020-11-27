@@ -8,8 +8,8 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from userbot.utils import admin_cmd
 from userbot import CMD_HELP 
 from userbot import bot
-HEROKU_APP_NAME = Config.HEROKU_APP_NAME or None
-HEROKU_API_KEY = Config.HEROKU_API_KEY or None
+HEROKU_APP_NAME = os.environ.get("HEROKU_APPNAME", None)
+HEROKU_API_KEY = os.environ.get("HEROKU_APIKEY", None)
 
 
 requirements_path = path.join(
