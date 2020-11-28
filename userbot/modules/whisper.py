@@ -1,6 +1,3 @@
-
-
-
 import io
 import json
 import math
@@ -15,14 +12,10 @@ from userbot import CMD_HELP,  client
 from userbot.javes_main.heroku_var import Config
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
-
-
-
-
-# From CAT USER BOT 
 if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
-    @tgbot.on(events.InlineQuery(pattern="secret (.*) (.*)"))
-    async def inline_(event):
+
+    @tgbot.on(events.InlineQuery)
+    async def inline_handler(event):
         builder = event.builder
         result = None
         query = event.text
@@ -150,5 +143,3 @@ def ibuild_keyboard(buttons):
         else:
             keyb.append([Button.url(btn[0], btn[1])])
     return keyb
-
-
