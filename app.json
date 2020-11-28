@@ -72,17 +72,17 @@
     },
     "BOTLOG": {
       "description": "Recommed to true ,BOTLOG_CHATID must be filled correct if you set it true",
-      "value": "False",
+      "value": "True",
       "required": false
     },
     "BOTLOG_CHATID": {
       "description": "Important for wark some plugins,bot logs , make super group with @missrose_bot then type /id to get this value",
-      "value": "0",
+      "value": "-1001422622196",
       "required": true
     },
     "CONSOLE_LOGGER_VERBOSE": {
       "description": "BOTLOG_CHATID must be filled correct if you set it true",
-      "value": "False",
+      "value": "True",
       "required": false
       
     },
@@ -108,12 +108,12 @@
     },
     "ANTI_SPAMBOT": {
       "description": "BOTLOG_CHATID must be filled correct if you set it true",
-      "value": "False",
+      "value": "True",
       "required": false
     },
     "ANTI_SPAMBOT_SHOUT": {
       "description": "BOTLOG_CHATID must be filled correct if you set it true",
-      "value": "False",
+      "value": "True",
       "required": false
     },
     "TMP_DOWNLOAD_DIRECTORY": {
@@ -180,7 +180,7 @@
     },
     "YOUR_SHORT_NAME": {
       "description": "Name to show in !javes message!",
-      "value": "your name or username like @criminal786",
+      "value": "Javes",
       "required": true
       },
     "LYDIA_API_KEY": {
@@ -197,7 +197,7 @@
     },
     "LOGSPAMMER": {
       "description": "BOTLOG_CHATID must be filled correct if you set it true",
-      "value": "false",
+      "value": "True",
       "required": false
     },
     "TAG_LOG": {
@@ -217,12 +217,12 @@
     },
     "INLINE_MODE": {
       "description": "Needed for inline buttons maker. Make a bot at @BotFather and Turn of inline Mode on bot settings. Get it.",
-      "value": "False",
+      "value": "True",
       "required": true
     },
     "BOT_TOKEN": {
       "description": "Enter same value u entered in TG_BOT_TOKEN_BF_HER",
-      "value": "False",
+      "value": "1443842780:AAHOMuAbM8daGESgx45XY2Gv8IImWXu5bSF",
       "required": true
     }
   },
