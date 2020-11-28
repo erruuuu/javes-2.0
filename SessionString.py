@@ -4,16 +4,11 @@
 # file, You can obtain one at https://www.gnu.org/licenses/gpl-3.0.en.html.
 
 print("an online StringSession generator")
-
-
-print("t ==> Telethon (docs.telethon.dev)")
-print("Telethon UserBot ==> https://github.com/Javes786/javes-2.0")
+print("Telethon UserBot ==> https://github.com/Sh1vam/javes-2.0")
 
 
 
 def Javes2():
-  print("you selected Telethon")
-  # (c) https://t.me/TelethonChat/37677
   from telethon.sync import TelegramClient
   from telethon.sessions import StringSession
   APP_ID = int(input("Enter APP ID here: "))
@@ -25,6 +20,6 @@ def Javes2():
   ) as client:
     session_str = client.session.save()
     s_m = client.send_message("me", session_str)
-    s_m.reply("⬆️ This StringSession is generated using https://repl.it/@Javes786/Javes-20-String-session#main.py \nPlease subscribe https://t.me/javes_support ")
+    s_m.reply("Thx For Using https://github.com/Sh1vam/javes-2.0")
     print("please check your Telegram Saved Messages for the StringSession ")
 Javes2()
