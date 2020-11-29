@@ -57,6 +57,27 @@ if IN:
    
 
 if tebot:
+
+ @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
+ async def on_plug_in_callback_query_handler(event):
+        me = await client.get_me()
+        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
+        if os.path.exists("./userbot/secrets.txt"):
+            jsondata = json.load(open("./userbot/secrets.txt"))
+            try:
+                message = jsondata[f"{timestamp}"]
+                userid = message["userid"]
+                ids = [userid, me.id]
+                if event.query.user_id in ids:
+                    encrypted_tcxt = message["text"]
+                    reply_pop_up_alert = encrypted_tcxt
+                else:
+                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
+            except KeyError:
+                reply_pop_up_alert = "This message no longer exists in bot server"
+        else:
+            reply_pop_up_alert = "This message no longer exists "
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
  @tebot.on(events.CallbackQuery)
  async def handler(event):
   try:
@@ -100,25 +121,7 @@ if tebot:
     	await event.answer("Please Wait Sir", alert=True)
   except Exception as e:     
     	return await event.edit(str(e))
- @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
- async def on_plug_in_callback_query_handler(event):
-        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
-        if os.path.exists("./userbot/secrets.txt"):
-            jsondata = json.load(open("./userbot/secrets.txt"))
-            try:
-                message = jsondata[f"{timestamp}"]
-                userid = message["userid"]
-                ids = [userid, me.id]
-                if event.query.user_id in ids:
-                    encrypted_tcxt = message["text"]
-                    reply_pop_up_alert = encrypted_tcxt
-                else:
-                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
-            except KeyError:
-                reply_pop_up_alert = "This message no longer exists in bot server"
-        else:
-            reply_pop_up_alert = "This message no longer exists "
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
 
         
 if tebot:
@@ -249,25 +252,6 @@ if tebot:
       result = builder.article("Help menu", text = "For Support, Report bugs & help @errorsender_bot", buttons=tbu, link_preview=False)      
       return await event.answer([result])
   return
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
 
 def ibuild_keyboard(buttons):
     keyb = []
