@@ -23,12 +23,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         builder = event.builder
         global me
         me = await client.get_me()
-        bot.uid=me.id
+
         result = None
         query = event.text
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if event.query.user_id == bot.uid and query.startswith("secrete"):
+        if event.query.user_id == me.id and query.startswith("secrete"):
             markdown_note = query[7:]
             prev = 0
             note_data = ""
@@ -64,7 +64,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 link_preview=False,
             )
             await event.answer([result] if result else None)
-        elif event.query.user_id == bot.uid and match:
+        elif event.query.user_id == me.id and match:
             query = query[7:]
             user, txct = query.split(" ", 1)
             builder = event.builder
@@ -127,7 +127,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             try:
                 message = jsondata[f"{timestamp}"]
                 userid = message["userid"]
-                ids = [userid, bot.uid]
+                ids = [userid, me.id]
                 if event.query.user_id in ids:
                     encrypted_tcxt = message["text"]
                     reply_pop_up_alert = encrypted_tcxt
