@@ -3,7 +3,7 @@ glitch_this
 PyGithub
 aiofiles
 aiohttp
-aria2p
+#aria2p causes suspension of app
 cryptg
 async_generator
 jikanpy
