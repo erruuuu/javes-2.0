@@ -12,7 +12,7 @@ import asyncio
 
 from userbot.util import admin_cmd
 
-
+from userbot import bot as borg
 
 
 @borg.on(admin_cmd(pattern=r"fdance"))
