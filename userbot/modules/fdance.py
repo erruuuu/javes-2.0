@@ -11,7 +11,7 @@ from telethon import events
 import asyncio
 
 from userbot.util import admin_cmd
-
+from userbot import tebot as tgbot
 from userbot import bot as borg
 
 
