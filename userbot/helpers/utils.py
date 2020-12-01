@@ -5,7 +5,7 @@ from telethon.tl.tlobject import TLObject
 from telethon.tl.types import MessageEntityMentionName, MessageEntityPre
 from telethon.utils import add_surrogate
 
-from ..Config import config
+from ..config import Config
 from ..utils import edit_delete
 
 
