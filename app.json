@@ -212,7 +212,7 @@
     },
     "TG_BOT_TOKEN_BF_HER": {
       "description": "Needed for inline buttons maker. Make a bot at @BotFather and get the token of your bot. And Don't Forget To Turn of inline Mode on bot settings. Get it.",
-      "value": "1443842780:AAHOMuAbM8daGESgx45XY2Gv8IImWXu5bSF",
+      "value": "1330445306:AAG6_qk60i1Jrx9v1wSMA_xhn3IZE9OCW-g",
       "required": true
     },
     "INLINE_MODE": {
@@ -222,7 +222,7 @@
     },
     "BOT_TOKEN": {
       "description": "Enter same value u entered in TG_BOT_TOKEN_BF_HER",
-      "value": "1443842780:AAHOMuAbM8daGESgx45XY2Gv8IImWXu5bSF",
+      "value": "1330445306:AAG6_qk60i1Jrx9v1wSMA_xhn3IZE9OCW-g",
       "required": true
     }
   },
