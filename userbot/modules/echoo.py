@@ -1,7 +1,7 @@
 """
 created by @mrconfused and @sandy1709
 Idea by @BlazingRobonix
-
+fixed By Sh1vam
 """
 
 import asyncio
@@ -12,7 +12,7 @@ from telethon import events
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from .. import CMD_HELP
-from userbot.utils import admin_cmd, edit_or_reply
+from userbot.utils import admin_cmd
 from .sql_helper.echo_sql import addecho, get_all_echos, is_echo, remove_echo
 from userbot import bot
 
@@ -32,12 +32,12 @@ async def echo(cat):
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
-            await edit_or_reply(cat, "The user is already enabled with echo ")
+            await cat.edit(cat, "The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
-        await edit_or_reply(cat, "Hi")
+        await cat.edit(cat, "Hi")
     else:
-        await edit_or_reply(cat, "Reply to a User's message to echo his messages")
+        await cat.edit(cat, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="rmecho$"))
@@ -57,11 +57,11 @@ async def echo(cat):
             pass
         if is_echo(user_id, chat_id):
             remove_echo(user_id, chat_id)
-            await edit_or_reply(cat, "Echo has been stopped for the user")
+            await cat.edit(cat, "Echo has been stopped for the user")
         else:
-            await edit_or_reply(cat, "The user is not activated with echo")
+            await cat.edit(cat, "The user is not activated with echo")
     else:
-        await edit_or_reply(cat, "Reply to a User's message to echo his messages")
+        await cat.edit(cat, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="listecho$"))
@@ -89,9 +89,9 @@ async def echo(cat):
         )
         url = f"https://nekobin.com/{key}"
         reply_text = f"echo enabled users: [here]({url})"
-        await edit_or_reply(cat, reply_text)
+        await cat.edit(cat, reply_text)
     else:
-        await edit_or_reply(cat, output_str)
+        await cat.edit(cat, output_str)
 
 
 @bot.on(events.NewMessage(incoming=True))
