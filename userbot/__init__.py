@@ -1,5 +1,3 @@
-
-
 import os
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG, WARNING
@@ -17,24 +15,6 @@ CONSOLE_LOGGER_VERBOSE = config.CONSOLE_LOGGER_VERBOSE
 basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=INFO)
 LOGS = getLogger(__name__)
-if config.STRING_SESSION:
-    session_name = str(config.STRING_SESSION)
-    bot = TelegramClient(StringSession(session_name), config.APP_ID, config.API_HASH)
-else:
-    session_name = "startup"
-    bot = TelegramClient(session_name, config.APP_ID, config.API_HASH)
-
-
-CMD_LIST = {}
-# for later purposes
-CMD_HELP = {}
-INT_PLUG = ""
-LOAD_PLUG = {}
-SUDO_LIST = {}
-# PaperPlaneExtended Support Vars
-
-
-CAT_ID = [" 929138153"]
 ENV = config.ENV
 API_KEY = config.API_KEY
 API_HASH = config.API_HASH
@@ -82,10 +62,8 @@ G_DRIVE_CLIENT_SECRET = config.G_DRIVE_CLIENT_SECRET
 G_DRIVE_AUTH_TOKEN_DATA = config.G_DRIVE_AUTH_TOKEN_DATA
 GDRIVE_FOLDER_ID = config.GDRIVE_FOLDER_ID
 TEMP_DOWNLOAD_DIRECTORY = config.TEMP_DOWNLOAD_DIRECTORY
-TAG_LOG = config.TAG_LOG
-TG_BOT_USER_NAME_BF_HER = config.TG_BOT_USER_NAME_BF_HER
-TG_BOT_TOKEN_BF_HER = config.TG_BOT_TOKEN_BF_HER
-INLINE_MODE = config.INLINE_MODE
+
+
 
 
     
@@ -137,5 +115,3 @@ LOAD_PLUG = {}
 ISAFK = None
 AFKREASON = None
 INT_PLUG = ""
-
-
