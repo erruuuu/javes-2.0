@@ -20,7 +20,7 @@ import math
 import re
 import time
 
-
+from .exceptions import CancelProcess
 
 
 async def md5(fname: str) -> str:
@@ -80,7 +80,7 @@ async def progress(
     now = time.time()
     diff = now - start
     if is_cancelled is True:
-        raise ("process cancled")
+        raise CancelProcess
 
     if round(diff % 10.00) == 0 or current == total:
         percentage = current * 100 / total
