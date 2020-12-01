@@ -32,12 +32,12 @@ async def echo(cat):
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
-            await cat.edit(cat, "The user is already enabled with echo ")
+            await cat.edit("The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
-        await cat.edit(cat, "Hi")
+        await cat.edit("Hello")
     else:
-        await cat.edit(cat, "Reply to a User's message to echo his messages")
+        await cat.edit("Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="rmecho$"))
@@ -57,11 +57,11 @@ async def echo(cat):
             pass
         if is_echo(user_id, chat_id):
             remove_echo(user_id, chat_id)
-            await cat.edit(cat, "Echo has been stopped for the user")
+            await cat.edit("Echo has been stopped for the user")
         else:
-            await cat.edit(cat, "The user is not activated with echo")
+            await cat.edit( "The user is not activated with echo")
     else:
-        await cat.edit(cat, "Reply to a User's message to echo his messages")
+        await cat.edit("Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="listecho$"))
@@ -89,9 +89,9 @@ async def echo(cat):
         )
         url = f"https://nekobin.com/{key}"
         reply_text = f"echo enabled users: [here]({url})"
-        await cat.edit(cat, reply_text)
+        await cat.edit(reply_text)
     else:
-        await cat.edit(cat, output_str)
+        await cat.edit(output_str)
 
 
 @bot.on(events.NewMessage(incoming=True))
