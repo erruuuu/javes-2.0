@@ -11,7 +11,7 @@ RUN apt-get install -y\
     gcc \
     g++ \
     git \
-    aria2 \
+    #aria2 \
     #util-linux \
     libevent-dev \
     libjpeg-dev \
