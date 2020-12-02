@@ -1,4 +1,5 @@
-FROM python:3.8-slim-buster
+#FROM python:3.8-slim-buster
+FROM debian:buster-slim
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
 
 RUN apt-get install -y\
