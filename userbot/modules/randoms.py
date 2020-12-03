@@ -21,7 +21,7 @@ if not os.path.isdir(sedpath):
 
 
 @bot.on(admin_cmd(pattern=r"tig"))
-
+# tig is of friday REST ALL MINE DONT DARE TO COPY ME
 async def lolmetrg(event):
     await event.delete()
     sed = await event.get_reply_message()
