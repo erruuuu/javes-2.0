@@ -24,7 +24,8 @@ import requests
 from telethon import Button, custom, events, functions
 #MADE BY SH1VAM USED CODES OF ORIGINAL JAVES INSPIRED FROM FRIDAY
 # DONOT KANG
-
+#HEHE I SECURED HARMFUL CMDS TOO 
+#BY SHIVAM 
 
 
 
