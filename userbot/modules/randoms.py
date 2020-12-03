@@ -23,7 +23,7 @@ if not os.path.isdir(sedpath):
 @bot.on(admin_cmd(pattern=r"tig"))
 # tig is of friday REST ALL MINE DONT DARE TO COPY ME
 async def lolmetrg(event):
-    await event.delete()
+    await event.delete()#this line made by Shivam
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -40,7 +40,7 @@ async def lolmetrg(event):
     lolbruh = "shivam.gif"
     await borg.send_file(
         event.chat_id, lolbruh, caption="Triggered....😬", reply_to=sed
-    )
+    )#this line Edited by Shivam
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
