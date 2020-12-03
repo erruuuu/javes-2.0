@@ -186,7 +186,7 @@ async def lolmetrg(event):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"brght"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
