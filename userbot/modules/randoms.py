@@ -63,7 +63,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="You got Rainbow Efect...", reply_to=sed
+        event.chat_id, lolbruh, caption=" You got Wasted...", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
