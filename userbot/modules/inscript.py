@@ -6,7 +6,7 @@ from subprocess import PIPE
 from subprocess import run as runapp
 import pybase64
 from sys import executable
-from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID
+from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID,client
 from userbot.events import javes05, bot, rekcah05
 javes = client = bot
 from userbot import CMD_HELP, ALIVE_NAME, PM_MESSAGE, JAVES_NAME, JAVES_MSG, ORI_MSG
@@ -35,125 +35,132 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     builder = event.builder
     code = event.pattern_match.group(1)
     urllib.parse.quote_plus(code)
+    me = await client.get_me()
+    if event.query.user_id == me.id:
+	    if not code:
+		resultm = builder.article(title="No Results.",description="hmm",text=f"`{JAVES_NNAME}:` **At least a variable is required toexecute. Use !help script for an example.**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 
+	    if code in ("userbot.session", "env", "printenv"):
+		resultm = builder.article(title="Privacy Issue.",description="hmmm",text=f"`{JAVES_NNAME}:` **Privacy Error, This command not permitted**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 
+	    if len(code.splitlines()) <= 5:
+		codepre = code
+	    else:
+		clines = code.splitlines()
+		codepre = clines[0] + "\n" + clines[1] + "\n" + clines[2] + \
+		    "\n" + clines[3] + "..."
 
-    
-    if not code:
-        resultm = builder.article(title="No Results.",description="hmm",text=f"`{JAVES_NNAME}:` **At least a variable is required toexecute. Use !help script for an example.**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
+	    command = "".join(f"\n {l}" for l in code.split("\n.strip()"))
+	    process = await asyncio.create_subprocess_exec(
+		executable,
+		'-c',
+		command.strip(),
+		stdout=asyncio.subprocess.PIPE,
+		stderr=asyncio.subprocess.PIPE)
+	    stdout, stderr = await process.communicate()
+	    result = str(stdout.decode().strip()) \
+		+ str(stderr.decode().strip())
 
-    if code in ("userbot.session", "env", "printenv"):
-        resultm = builder.article(title="Privacy Issue.",description="hmmm",text=f"`{JAVES_NNAME}:` **Privacy Error, This command not permitted**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
-
-    if len(code.splitlines()) <= 5:
-        codepre = code
-    else:
-        clines = code.splitlines()
-        codepre = clines[0] + "\n" + clines[1] + "\n" + clines[2] + \
-            "\n" + clines[3] + "..."
-
-    command = "".join(f"\n {l}" for l in code.split("\n.strip()"))
-    process = await asyncio.create_subprocess_exec(
-        executable,
-        '-c',
-        command.strip(),
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE)
-    stdout, stderr = await process.communicate()
-    result = str(stdout.decode().strip()) \
-        + str(stderr.decode().strip())
-
-    if result:
-        if len(result) > 4096:
-            '''file = open("exec.txt", "w+")
-            file.write(result)
-            file.close()'''
-            resultm = builder.article(title="text too long",description="hmmmmm",text=f"`{JAVES_NNAME}:` **Output too large,use !exec**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
-            await event.answer([resultm])
-            return
-            '''await event.client.send_file(
-                event.chat_id,
-                "exec.txt",
-                reply_to=event.id,
-                caption="`Output too large, sending as file`",
-            )'''
-            '''remove("exec.txt")
-            return'''
-        '''await event.edit("**Query: **\n`"
-                         f"{codepre}"
-                         "`\n**Result: **\n`"
-                         f"{result}"
-                         "`")'''
-        resultm = builder.article(title="bingo",description="hmmmmmmmmmm",text="**Query: **\n`"
-                         f"{codepre}"
-                         "`\n**Result: **\n`"
-                         f"{result}"
-                         "`",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
-    else:
-        '''await event.edit("**Query: **\n`"
-                         f"{codepre}"
-                         "`\n**Result: **\n`No Result Returned/False`")'''
-        resultm = builder.article(title="ohno",description="hmmmmmmmmmmmmmmmmm",text="**Query: **\n`"
-                         f"{codepre}"
-                         "`\n**Result: **\n`No Result Returned/False`"
-                         "`",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
-
+	    if result:
+		if len(result) > 4096:
+		    '''file = open("exec.txt", "w+")
+		    file.write(result)
+		    file.close()'''
+		    resultm = builder.article(title="text too long",description="hmmmmm",text=f"`{JAVES_NNAME}:` **Output too large,use !exec**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		    await event.answer([resultm])
+		    return
+		    '''await event.client.send_file(
+			event.chat_id,
+			"exec.txt",
+			reply_to=event.id,
+			caption="`Output too large, sending as file`",
+		    )'''
+		    '''remove("exec.txt")
+		    return'''
+		'''await event.edit("**Query: **\n`"
+				 f"{codepre}"
+				 "`\n**Result: **\n`"
+				 f"{result}"
+				 "`")'''
+		resultm = builder.article(title="bingo",description="hmmmmmmmmmm",text="**Query: **\n`"
+				 f"{codepre}"
+				 "`\n**Result: **\n`"
+				 f"{result}"
+				 "`",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
+	    else:
+		'''await event.edit("**Query: **\n`"
+				 f"{codepre}"
+				 "`\n**Result: **\n`No Result Returned/False`")'''
+		resultm = builder.article(title="ohno",description="hmmmmmmmmmmmmmmmmm",text="**Query: **\n`"
+				 f"{codepre}"
+				 "`\n**Result: **\n`No Result Returned/False`"
+				 "`",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
+    if not event.query.user_id == me.id:
+		resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 
 @tgbot.on(events.InlineQuery(pattern=r"eval (.*)"))
 async def inline_id_handler(event: events.InlineQuery.Event):
     builder = event.builder
-    if event.pattern_match.group(1):
-        expression = event.pattern_match.group(1)
-        urllib.parse.quote_plus(expression)
-    else:
-        resultm = builder.article(title="hey man",description="uuf",text=f"`{JAVES_NNAME}:` **At least a variable is required to execute. Use !help script for an example.**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
+    me = await client.get_me()
+    if event.query.user_id == me.id:
+	    if event.pattern_match.group(1):
+		expression = event.pattern_match.group(1)
+		urllib.parse.quote_plus(expression)
+	    else:
+		resultm = builder.article(title="hey man",description="uuf",text=f"`{JAVES_NNAME}:` **At least a variable is required to execute. Use !help script for an example.**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 
 
-    if expression in ("userbot.session", "env", "printenv"):
-        resultm = builder.article(title="Privacy Issue....",description="Bruh",text=f"`{JAVES_NNAME}:` **Privacy Error, This command not permitted**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
+	    if expression in ("userbot.session", "env", "printenv"):
+		resultm = builder.article(title="Privacy Issue....",description="Bruh",text=f"`{JAVES_NNAME}:` **Privacy Error, This command not permitted**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 
-    try:
-        evaluation = str(eval(expression))
-        if evaluation:
-            if isinstance(evaluation, str):
-                if len(evaluation) >= 4096:
-                    resultm = builder.article(title="hehe text too long",description="sorry",text=f"`{JAVES_NNAME}:` **Output too large,use !eval**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
-                    await event.answer([resultm])
-                    return
- 
-                resultm = builder.article(title="OwO",description="U got it",text="**Query: **\n`"
-							 f"{expression}"
-							 "`\n**Result: **\n`"
-							 f"{evaluation}"
-							 "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
-                await event.answer([resultm])
-                return
-        else:
-            resultm = builder.article(title="ohno lol",description="u made it  wrong",text="**Query: **\n`"
-							 f"{expression}"
-							 "`\n**Result: **\n`No Result Returned/False`"
-							 "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
-            await event.answer([resultm])
-            return
-    except Exception as err:
+	    try:
+		evaluation = str(eval(expression))
+		if evaluation:
+		    if isinstance(evaluation, str):
+			if len(evaluation) >= 4096:
+			    resultm = builder.article(title="hehe text too long",description="sorry",text=f"`{JAVES_NNAME}:` **Output too large,use !eval**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+			    await event.answer([resultm])
+			    return
 
-        resultm = builder.article(title="OoPs",description="Error",text="**Query: **\n`"
-                         f"{expression}"
-                         "`\n**Result: **\n`"
-                         f"{err}"
-                         "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+			resultm = builder.article(title="OwO",description="U got it",text="**Query: **\n`"
+								 f"{expression}"
+								 "`\n**Result: **\n`"
+								 f"{evaluation}"
+								 "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+			await event.answer([resultm])
+			return
+		else:
+		    resultm = builder.article(title="ohno lol",description="u made it  wrong",text="**Query: **\n`"
+								 f"{expression}"
+								 "`\n**Result: **\n`No Result Returned/False`"
+								 "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+		    await event.answer([resultm])
+		    return
+	    except Exception as err:
+
+		resultm = builder.article(title="OoPs",description="Error",text="**Query: **\n`"
+				 f"{expression}"
+				 "`\n**Result: **\n`"
+				 f"{err}"
+				 "`",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+    if not event.query.user_id == me.id:
+		resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+		await event.answer([resultm])
+		return
 @tgbot.on(events.InlineQuery(pattern=r"hash (.*)"))
 async def inline_id_handler(event: events.InlineQuery.Event):
     builder = event.builder
