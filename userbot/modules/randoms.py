@@ -23,7 +23,7 @@ if not os.path.isdir(sedpath):
 @bot.on(admin_cmd(pattern=r"tig"))
 
 async def lolmetrg(event):
-    await event.edit("`Triggered This Image`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -39,7 +39,7 @@ async def lolmetrg(event):
     open("shivam.gif", "wb").write(r.content)
     lolbruh = "shivam.gif"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="You got triggered....", reply_to=sed
+        event.chat_id, lolbruh, caption="Triggered....😬", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -47,7 +47,7 @@ async def lolmetrg(event):
 @bot.on(admin_cmd(pattern=r"wst"))
 
 async def lolmetrg(event):
-    await event.edit("`hmm Let me see ehat i can do`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -63,14 +63,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption=" You got Wasted...", reply_to=sed
+        event.chat_id, lolbruh, caption="⚰️ Wasted... 😵", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"rmbow"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -86,14 +86,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="You got Rainbow Efect", reply_to=sed
+        event.chat_id, lolbruh, caption="The Rainbow Efect WOW", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"glass"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -116,7 +116,7 @@ async def lolmetrg(event):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"gry"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -139,7 +139,7 @@ async def lolmetrg(event):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"invert"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -162,7 +162,7 @@ async def lolmetrg(event):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"ig"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -178,7 +178,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="no reactions found  ", reply_to=sed
+        event.chat_id, lolbruh, caption="no reactions found 🙄 ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -201,14 +201,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="brightness.....seems to be exploited", reply_to=sed
+        event.chat_id, lolbruh, caption="brightness.....seems to be exploited ig 😶", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"bow"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -231,7 +231,7 @@ async def lolmetrg(event):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"sepia"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -247,14 +247,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="----------", reply_to=sed
+        event.chat_id, lolbruh, caption="See this is called sepia ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"red"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -270,14 +270,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="bloody red u r", reply_to=sed
+        event.chat_id, lolbruh, caption="bloody red u r now ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"green"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -293,14 +293,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="Go Green", reply_to=sed
+        event.chat_id, lolbruh, caption="Go Green....Go Green...😂😂😂 ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"blue"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -316,14 +316,14 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="blue huh hmm", reply_to=sed
+        event.chat_id, lolbruh, caption="blue huh hmm what can i tell about this 🤔 ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
             os.remove(files)
 @bot.on(admin_cmd(pattern=r"pixlte"))
 async def lolmetrg(event):
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -339,7 +339,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="i will pixelate u like this", reply_to=sed
+        event.chat_id, lolbruh, caption="pixelate it is u kno 🤣🤣🤣", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -353,7 +353,7 @@ async def lolmetrg(event):
         username, comment= text.split(".")
     except:
         await event.edit("`.ytc username.comment reply  to image`")
-    await event.edit("`hmm let me see what i can do to this`")
+    await event.delete()
     sed = await event.get_reply_message()
     if isinstance(sed.media, MessageMediaPhoto):
         img = await borg.download_media(sed.media, sedpath)
@@ -369,7 +369,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="U Commented this", reply_to=sed
+        event.chat_id, lolbruh, caption="This is A Youtube Commment 👀", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
