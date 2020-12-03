@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
-import logging
+#import logging
 from telethon import functions, types
 from telethon.errors import PhotoInvalidDimensionsError
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -277,7 +277,7 @@ async def _(event):
             await event.edit("not supported")
             os.remove(downloaded_file_name)
             return
-        logger.info(command_to_run)
+        #logger.info(command_to_run)
         # TODO: re-write create_subprocess_exec 😉
         process = await asyncio.create_subprocess_exec(
             *command_to_run,
