@@ -133,7 +133,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="You got grey coloured", reply_to=sed
+        event.chat_id, lolbruh, caption="You got grey coloured 😝", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -225,7 +225,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="choose your which side", reply_to=sed
+        event.chat_id, lolbruh, caption="choose your which side  😏", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -370,7 +370,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="This is A Youtube Commment 👀", reply_to=sed
+        event.chat_id, lolbruh, caption="😁 Guess From Where I Got This Commment 👀 ", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
@@ -419,7 +419,7 @@ async def lolmetrg(event):
     open("shivam.png", "wb").write(r.content)
     lolbruh = "shivam.png"
     await borg.send_file(
-        event.chat_id, lolbruh, caption="blur..🤨", reply_to=sed
+        event.chat_id, lolbruh, caption="blur..🤓", reply_to=sed
     )
     for files in (lolbruh, img):
         if files and os.path.exists(files):
