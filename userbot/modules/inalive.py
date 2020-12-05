@@ -16,7 +16,7 @@ ALIVE_PHOTTO = PROFILE_PP
 async def gtlost(event):
     await event.delete()
     mt = await tebot.get_me()
-    results = await event.client.inline_query(mt.username, "Iam On type` !javes `or` !help ` or ` .hlp`for more info" )
+    results = await event.client.inline_query(mt.username, "Iam On type` !javes `or` !help ` or ` .hlp `for more info" )
     return await results[0].click( event.chat_id, reply_to=event.reply_to_msg_id, hide_via=False )
 if TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
@@ -26,7 +26,7 @@ if TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         result = None
         query = event.text
         me = await client.get_me()
-        if query.startswith("Iam On type` !javes `or` !help ` or ` .hlp`for more info") and event.query.user_id == me.id:
+        if query.startswith("Iam On type` !javes `or` !help ` or ` .hlp `for more info") and event.query.user_id == me.id:
             buttons = [
                 (
                     Button.url("Repo", "https://github.com/Sh1vam/javes-2.0"),
