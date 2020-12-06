@@ -4861,7 +4861,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 8])
+            await event.edit(animation_chars[i % 10])
 
 
 CMD_HELP.update(
@@ -4926,6 +4926,6 @@ CMD_HELP.update(
 \n\n.figdeadfrog\
 \n\n.fuck\
 \n\n.jagh\
-nUsage: List of All Available Commands."
+\nUsage: List of All Available Commands."
     }
 )
