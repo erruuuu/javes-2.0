@@ -1,10 +1,10 @@
 import os
 import asyncio
 from getpass import getuser
-from os import remove
 from subprocess import PIPE
 from subprocess import run as runapp
 import pybase64
+from os import remove
 from sys import executable
 from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID,client
 from userbot.events import javes05, bot, rekcah05
@@ -22,7 +22,7 @@ from userbot import tebot as tgbot
 from userbot import bot as borg
 import requests
 from telethon import Button, custom, events, functions
-#MADE BY SH1VAM USED CODES OF ORIGINAL JAVES INSPIRED FROM FRIDAY
+#MADE BY SH1VAM USED CODES OF ORIGINAL JAVES 
 # DONOT KANG
 #HEHE I SECURED HARMFUL CMDS TOO 
 #BY SHIVAM 
@@ -64,8 +64,12 @@ async def inline_id_handler(event: events.InlineQuery.Event):
 		+ str(stderr.decode().strip())
         if result:
             if len(result) > 4096:
-                    resultm = builder.article(title="text too long",description="hmmmmm",text=f"`{JAVES_NNAME}:` **Output too large,use !exec**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+                    file = open("exec.txt", "w+")
+                    file.write(result)
+                    file.close()
+                    resultm = builder.document("exec.txt",title="text too long",description="hmmmmm",text=f"`{JAVES_NNAME}:` **Output too large sended as file,U Can Use !exec**",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
                     await event.answer([resultm])
+                    remove("exec.txt")
                     return
             resultm = builder.article(title="bingo",description="hmmmmmmmmmm",text="**Query: **\n`"
 				 f"{codepre}"
@@ -107,8 +111,12 @@ async def inline_id_handler(event: events.InlineQuery.Event):
                 if evaluation:
                     if isinstance(evaluation, str):
                         if len(evaluation) >= 4096:
-                            resultm = builder.article(title="hehe text too long",description="sorry",text=f"`{JAVES_NNAME}:` **Output too large,use !eval**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+                            file = open("eval.txt", "w+")
+                            file.write(evaluation)
+                            file.close()
+                            resultm = builder.article("eval.txt",title="hehe text too long",description="Doc",text=f"`{JAVES_NNAME}:` **Output too large Snded as file, Can also use !eval**",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
                             await event.answer([resultm])
+                            remove("eval.txt")
                             return
                         resultm = builder.article(title="OwO",description="U got it",text="**Query: **\n`"
 								 f"{expression}"
@@ -139,47 +147,63 @@ async def inline_id_handler(event: events.InlineQuery.Event):
 @tgbot.on(events.InlineQuery(pattern=r"hash (.*)"))
 async def inline_id_handler(event: events.InlineQuery.Event):
     builder = event.builder
-    hashtxt_ = event.pattern_match.group(1)
-    urllib.parse.quote_plus(hashtxt_)
-    hashtxt = open("hashdis.txt", "w+")
-    hashtxt.write(hashtxt_)
-    hashtxt.close()
-    md5 = runapp(["md5sum", "hashdis.txt"], stdout=PIPE)
-    md5 = md5.stdout.decode()
-    sha1 = runapp(["sha1sum", "hashdis.txt"], stdout=PIPE)
-    sha1 = sha1.stdout.decode()
-    sha256 = runapp(["sha256sum", "hashdis.txt"], stdout=PIPE)
-    sha256 = sha256.stdout.decode()
-    sha512 = runapp(["sha512sum", "hashdis.txt"], stdout=PIPE)
-    runapp(["rm", "hashdis.txt"], stdout=PIPE)
-    sha512 = sha512.stdout.decode()
-    ans = ("Text: `" + hashtxt_ + "`\nMD5: `" + md5 + "`SHA1: `" + sha1 +
-           "`SHA256: `" + sha256 + "`SHA512: `" + sha512[:-1] + "`")
-    if len(ans) > 4096:
-        resultm = builder.article(title="Really",description="Sorry",text=f"`{JAVES_NNAME}:` **Output too large,use !hash**",buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
-    else:
-        resultm = builder.article(title="Haha",description="Click Me",text=ans,buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
+    me = await client.get_me()
+    if event.query.user_id == me.id:
+        hashtxt_ = event.pattern_match.group(1)
+        urllib.parse.quote_plus(hashtxt_)
+        hashtxt = open("hashdis.txt", "w+")
+        hashtxt.write(hashtxt_)
+        hashtxt.close()
+        md5 = runapp(["md5sum", "hashdis.txt"], stdout=PIPE)
+        md5 = md5.stdout.decode()
+        sha1 = runapp(["sha1sum", "hashdis.txt"], stdout=PIPE)
+        sha1 = sha1.stdout.decode()
+        sha256 = runapp(["sha256sum", "hashdis.txt"], stdout=PIPE)
+        sha256 = sha256.stdout.decode()
+        sha512 = runapp(["sha512sum", "hashdis.txt"], stdout=PIPE)
+        runapp(["rm", "hashdis.txt"], stdout=PIPE)
+        sha512 = sha512.stdout.decode()
+        ans = ("Text: `" + hashtxt_ + "`\nMD5: `" + md5 + "`SHA1: `" + sha1 +
+               "`SHA256: `" + sha256 + "`SHA512: `" + sha512[:-1] + "`")
+        if len(ans) > 4096:
+            hashfile = open("hashes.txt", "w+")
+            hashfile.write(ans)
+            hashfile.close()
+            resultm = builder.document("hashes.txt",title="Really",description="A FILE",text=f"`{JAVES_NNAME}:` **Output too large sended as doc ,can also use !hash**",buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
+            await event.answer([resultm])
+            runapp(["rm", "hashes.txt"], stdout=PIPE)
+            return
+        else:
+            resultm = builder.article(title="Haha",description="Click Me",text=ans,buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
+            await event.answer([resultm])
+            return
+    if not event.query.user_id == me.id:
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
         await event.answer([resultm])
         return
 @tgbot.on(events.InlineQuery(pattern=r"base64 (en|de) (.*)"))
 async def inline_id_handler(event: events.InlineQuery.Event):
 
     builder = event.builder
-    if event.pattern_match.group(1) == "en":
-        lething = str(
-            pybase64.b64encode(bytes(event.pattern_match.group(2),
-                                     "utf-8")))[2:]
+    me = await client.get_me()
+    if event.query.user_id == me.id:
+        if event.pattern_match.group(1) == "en":
+            lething = str(
+                pybase64.b64encode(bytes(event.pattern_match.group(2),
+                                         "utf-8")))[2:]
 
-        resultm = builder.article(title="Encoded",description="en",text="Encoded: `" + lething[:-1] + "`",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
-        await event.answer([resultm])
-        return
+            resultm = builder.article(title="Encoded",description="en",text="Encoded: `" + lething[:-1] + "`",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
+            await event.answer([resultm])
+            return
 
-    else:
-        lething = str(
-            pybase64.b64decode(bytes(event.pattern_match.group(2), "utf-8"),
-                               validate=True))[2:]
-        resultm = builder.article(title="Decoded",description="de",text="Decoded: `" + lething[:-1] + "`",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
+        else:
+            lething = str(
+                pybase64.b64decode(bytes(event.pattern_match.group(2), "utf-8"),
+                                   validate=True))[2:]
+            resultm = builder.article(title="Decoded",description="de",text="Decoded: `" + lething[:-1] + "`",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
+            await event.answer([resultm])
+            return
+    if not event.query.user_id == me.id:
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
         await event.answer([resultm])
         return
