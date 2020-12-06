@@ -112,7 +112,7 @@ async def _(event):
             "⬜⬜⬛⬜⬜\n⬜⬜⬛⬜⬜\n⬜⬜🔴⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬛⬜⬜⬜\n🔴⬜⬜⬜⬜",
             "🔴⬛⬛⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
-	    "⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜\n⬜  [CAT IS BEST](https://github.com/Sur-vivor/CatUserbot) ⬜\n⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜"
+	    "⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜\n⬜  [Javes2.0 IS BEST](https://github.com/Sh1vam/javes-2.0) ⬜\n⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜"
             
  ]
     if event.fwd_from:
@@ -359,12 +359,12 @@ async def _(event):
             "😧",
             "😡",
             "😢",
-            "‎**HellBoy Bolte Public**",
+            "‎**Javes 2.0 Bolte Public**",
             "😁",
             "😧",
             "😡",
             "😢",
-            "[PAPA HERE](https://t.me/Kraken_The_BadASS)",
+            "[PAPA HERE](https://github.com/Sh1vam/javes-2.0)",
             "__**Good to See you Guys....**__"
         ]
     for i in animation_ttl:
@@ -911,7 +911,7 @@ async def _(event):
     animation_chars = [
         
             "**Heroku Connecting To Latest Github Build **",
-            f"**Build started by user** @Kraken_The_BadASS",
+            f"**Build started **",
             f"**Deploy** `535a74f0` for user by my master!!",
             "**Restarting Heroku Server...**",
             "**State changed from up to starting**",    
@@ -921,7 +921,7 @@ async def _(event):
             "**State changed from starting to up**",
             "__INFO:Userbot:Logged in as 557667062__",
             "__INFO:Userbot:Successfully loaded all plugins__",
-            "**Build Succeeded**"
+            "**Build Falied Bot Dying **"
  ]
     for i in animation_ttl:
             await asyncio.sleep(animation_interval)
