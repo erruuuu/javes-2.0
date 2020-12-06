@@ -32,7 +32,7 @@ if TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     Button.url("Repo", "https://github.com/Sh1vam/javes-2.0"),
                     Button.url("Deploy", "https://heroku.com/deploy?template=https://github.com/Sh1vam/javes-2.0/blob/master"),
                     Button.url("String", "https://repl.it/@Javes786/Javes-20-String-session#main.py"),
-                    Button.url("Group", "https://t.me/javes_support"),
+                    Button.url("Chanel", "https://t.me/plugines"),
                 )
             ]
             if ALIVE_PHOTTO and ALIVE_PHOTTO.endswith((".jpg", ".png")):
