@@ -5,7 +5,11 @@ Available Commands:
 .isro
 
 built by @r4v4n4 , isse bhi loot lo betichod"""
+from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID,client
 
+from userbot.events import javes05, bot, rekcah05
+
+javes = client = bot
 from telethon import events
 
 import asyncio
