@@ -12,7 +12,7 @@ import re
 TG_BOT_USER_NAME_BF_HER=os.environ.get("TG_BOT_USER_NAME_BF_HER",None)
 PROFILE_PP = os.environ.get("PROFILE_PP" , None)
 ALIVE_PHOTTO = PROFILE_PP
-@javes05(outgoing=True, pattern="^!inalive(?: |$|\n)([\s\S]*)")
+@javes05(outgoing=True, pattern="^!Shivam(?: |$|\n)([\s\S]*)")
 async def gtlost(event):
     await event.delete()
     mt = await tebot.get_me()
