@@ -15,7 +15,7 @@ from userbot import bot
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-
+#BY CAT USERBOT
 
 @bot.on(admin_cmd(pattern=r"cbutton(?: |$)(.*)", outgoing=True))
 async def _(event):
@@ -108,11 +108,11 @@ CMD_HELP.update(
         "button": "**Plugin : **`button`\
     \n\n**SYNTAX : **`.cbutton`\
     \n**USAGE :** Buttons must be in the format as [Name on button]<buttonurl:link you want to open> and markdown is Default to html\
-    \n**EXAMPLE :** `.cbutton test [google]<buttonurl:https://www.google.com> [catuserbot]<buttonurl:https://t.me/catuserbot17:same> [support]<buttonurl:https://t.me/catuserbot_support>`\
+    \n**EXAMPLE :** `.cbutton shivam [google]<buttonurl:https://www.google.com> [Javes2.0]<buttonurl:https://github.com/Sh1vam/javes-2.0:same> [Channel]<buttonurl:https://t.me/plugines>`\
     \n\n**SYNTAX : **`.ibutton`\
     \n**USAGE :** Buttons must be in the format as [Name on button]<buttonurl:link you want to open>\
-    \n**EXAMPLE :** `.ibutton test [google]<buttonurl:https://www.google.com> [catuserbot]<buttonurl:https://t.me/catuserbot17:same> [support]<buttonurl:https://t.me/catuserbot_support>`\
-	\n**EXAMPLE :** `@yourbotusername secrete test [google]<buttonurl:https://www.google.com> [catuserbot]<buttonurl:https://t.me/catuserbot17:same> [support]<buttonurl:https://t.me/catuserbot_support>`\
+    \n**EXAMPLE :** `.ibutton Sh1vam [google]<buttonurl:https://www.google.com> [Javes2.0]<buttonurl:https://github.com/Sh1vam/javes-2.0:same> [Channel]<buttonurl:https://t.me/plugines>`\
+	\n**EXAMPLE :** `@yourbotusername secrete Shivam [google]<buttonurl:https://www.google.com> [Javes2.0]<buttonurl:https://github.com/Sh1vam/javes-2.0:same> [Channel]<buttonurl:https://t.me/plugines>`\
     "
     }
 )
