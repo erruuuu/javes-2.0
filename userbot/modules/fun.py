@@ -1295,7 +1295,7 @@ async def payf(event):
 
 
 
-@javes05(pattern=r"!type(?: |$)(.*)", outgoing=True)
+@javes05(pattern=r"!note(?: |$)(.*)", outgoing=True)
 async def typewriter(typew):
     """ Just a small command to make your keyboard become a typewriter! """
     textx = await typew.get_reply_message()
