@@ -1,7 +1,7 @@
 #For First fore line which is coded by https://github.com/sppidy thanks it prevented app suspention thanks bro
 FROM kalilinux/kali-rolling
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt upgrade -y && apt-get install sudo -y
+RUN apt-get update && apt upgrade -y && apt-get install sudo -y && sudo apt-get update  && sudo apt-get upgrade sudo 
 RUN touch ~/.hushlogin
 RUN apt-get install -y\
     coreutils \
@@ -51,8 +51,7 @@ RUN apt-get install -y\
     zip \
     megatools \
     libfreetype6-dev
-
-
+#RUN sudo apt-get install -y sqlite3 libsqlite3-dev
 
 
 RUN pip3 install --upgrade pip setuptools 
