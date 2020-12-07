@@ -113,11 +113,6 @@ if tebot:
             reply_pop_up_alert = "This message no longer exists "
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
-    
-
-
-
  @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"open")))
    
  async def opner(event):
@@ -192,9 +187,7 @@ if tebot:
         else:
             reply_pop_up_alert = "Please get your own Userbot😁😁"
             await event.answer(reply_pop_up_alert)
-   
 
-  
  @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"bus_plugin_(.*)")
@@ -224,7 +217,7 @@ if tebot:
 
         reply_pop_up_alert = help_string
         reply_pop_up_alert += (
-            "\n\n __Click on buttons below to load or unload them..report us if you find any bug__\n\n **©DARKCOBRA USERBOT**".format(plugin_name)
+            "\n\n __Click on buttons below to load or unload them..".format(plugin_name)
         )
         try:
             me = await client.get_me()
@@ -241,20 +234,18 @@ if tebot:
                 halps = "Do .hlp {} to get the list of commands.".format(plugin_name)
                 await event.edit(halps,buttons=sh1vam)
             else:
-                reply_pop_up_alert = "Please get your own Userbot, and don't use mine for more info visit @DARK_COBRA_SUPPORT!"
+                reply_pop_up_alert = "Please get your own Userbot"
                 await event.answer(reply_pop_up_alert)
  @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"load\((.+?)\)")))
    
  async def on_plug_in_callback_query_handler(event):
               me = await client.get_me()
               if event.query.user_id == me.id :
-                    
-#  🇦 🇷 🇪      🇧 🇸 🇩 🇰      🇮 🇸 🇸 🇪    🇰 🇦 🇳 🇬  🇲 🇦 🇹   🇰 🇷    🇷 🇪   🇲 🇨 
-                    
+
                     try:
                         fcix = [custom.Button.inline("  𝕭𝖆𝖈𝖐 ",data="backr({})".format(shivam)),custom.Button.inline(" 𝕮𝖑𝖔𝖘𝖊 ", data="closer"),custom.Button.inline(" 𝖀𝖓𝖑𝖔𝖆𝖉 ",data="unload({})".format(shivam_sh1vam))]
                         load_module(event.data_match.group(1).decode("UTF-8"))# kyu sir kang krne m musil aa rhi h kya ... Bolo help kr du kya 😂😂😂
-                        await event.edit( "`Your DarkCobra Has Successfully loaded` >>>" + str(event.data_match.group(1).decode("UTF-8")),buttons=fcix)
+                        await event.edit( "`Successfully loaded` >>>" + str(event.data_match.group(1).decode("UTF-8")),buttons=fcix)
                     except Exception as e:
                         await event.edit("Error{}".format(shortname, str(e))+ " Successfully loaded" + str(event.data_match.group(1).decode("UTF-8")),buttons=fcix)
               else:
