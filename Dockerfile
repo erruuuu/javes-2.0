@@ -42,7 +42,7 @@ RUN apt-get install -y\
     #apktool \
     #openjdk-13-jdk \
     #zipalign \
-    sqlite \
+    sqlite3 \
     ffmpeg \
     libsqlite3-dev \
     chromium \
