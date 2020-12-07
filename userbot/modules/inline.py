@@ -2,7 +2,7 @@
 #telegram channel @javes05
 #from https://t.me/pldhsys
 
-
+from userbot.javes_main.heroku_var import Var
 import io
 import json
 import math
