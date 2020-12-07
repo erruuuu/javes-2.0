@@ -329,7 +329,7 @@ if tebot:
           await event.edit(str(CMD_HELP[et]), buttons=fci)
     else:
 	#await event.answer("Please Wait Sir", alert=True)
-	pass
+      pass
   except Exception as e:     
     	return await event.edit(str(e))   
 if tebot:
