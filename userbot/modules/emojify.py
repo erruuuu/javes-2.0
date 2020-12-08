@@ -10,7 +10,7 @@ from userbot import CMD_HELP
 from userbot import bot as borg
 
 from userbot.utils import admin_cmd
-from userbot.helpers import styles as emojify
+from userbot.helpers import fonts as emojify
 
 
 @borg.on(admin_cmd(pattern="eem(?: |$)(.*)"))
