@@ -913,8 +913,7 @@ async def copypasta(cp_e):
         return
 
     reply_text = choice(EMOJIS)
-    # choose a random character in the message to be substituted with 🅱️
-    b_char = choice(message).lower()
+
     for owo in message:
         if owo == " ":
             reply_text += choice(EMOJIS)
