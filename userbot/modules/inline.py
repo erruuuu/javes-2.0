@@ -164,10 +164,8 @@ if tebot:
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_LIST[et]), buttons=fci)
     else:
-	try:
-		darki()
-	except:
-		await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
+	try:darki()
+	except:await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
   except Exception as e:     
     	return await event.edit(str(e))
 
