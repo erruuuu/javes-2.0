@@ -163,7 +163,7 @@ if tebot:
                     event.data_match.group(1).decode("UTF-8"))
                 
                 dc = paginate_help(
-                    current_page_number + 1, CMD_LIST, "helpr")
+                    current_page_number + 1, CMD_HELP, "helpr")
               
                 await event.edit(buttons=dc)
             else:
@@ -177,7 +177,7 @@ if tebot:
                 
                 dc = paginate_help(
                     current_page_number - 1,
-                    CMD_LIST,  # pylint:disable=E0602
+                    CMD_HELP,  # pylint:disable=E0602
                     "helpr"
                 )
                 
@@ -188,9 +188,7 @@ if tebot:
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
-    if et not in CMD_HELP and et in CMD_LIST: 
-          fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
-          await event.edit(str(CMD_LIST[et]), buttons=fci)
+
     else:
         try:
             await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
