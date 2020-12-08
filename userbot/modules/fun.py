@@ -921,8 +921,6 @@ async def copypasta(cp_e):
         elif owo in EMOJIS:
             reply_text += owo
             reply_text += choice(EMOJIS)
-        '''elif owo.lower() == b_char:
-            reply_text += "🅱️"'''
         else:
             if bool(getrandbits(1)):
                 reply_text += owo.upper()
