@@ -2,7 +2,7 @@
 #telegram channel @javes05
 #from https://t.me/pldhsys
 
-
+from userbot.modules.cobra import *
 import io
 import json
 import math
@@ -113,10 +113,15 @@ if tebot:
            tbu += [[ Button.inline(f"{sad3}"  , f"{sad3}")]]   
         return await event.edit ("For Support, Report bugs & help @errorsender_bot", buttons=tbu, link_preview=False)   
     if et == "close":
-        return await event.edit (" Help Menu Closed")   
+        return await event.edit (" Help Menu Closed")
+    if et in ["backr({})".format(shivam),"closer","unload","load","{}_next({})".format(prefix, modulo_page),"{}_prev({})".format(prefix, modulo_page),"load({})".format(shivam_sh1vam),"unload({})".format(shivam_sh1vam)]:
+        from userbot.modules import cobra 
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
+    if et in CMD_LIST: 
+          fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
+          await event.edit(str(CMD_LIST[et]), buttons=fci)
     else:
     	await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
   except Exception as e:     
