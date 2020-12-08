@@ -117,7 +117,7 @@ if tebot:
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
-   else:
+    else:
     	await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
   except Exception as e:     
     	return await event.edit(str(e))
