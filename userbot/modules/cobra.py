@@ -1,4 +1,4 @@
-'''# Darkcobra Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
+# Darkcobra Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
 # kangers Keep Credits 😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒
 # Made by Dc-Team
 # Don't remove these lines u fool ,,, 
@@ -234,11 +234,6 @@ def paginate_help(page_number, loaded_plugins, prefix):
         "{} {} {}".format(random.choice(list(multi)), x,random.choice(list(mult2i))),
         data="bus_plugin_{}".format(x))
         for x in helpable_plugins]
-    #z=[]
-    for i in range(0,number_of_rows+1):
-        x=modules[i::number_of_cols]
-        z.append(x)
-    pairs =  list(zip(z))#
     pairs =  list(zip(modules[0::number_of_cols],modules[1::number_of_cols],modules[2::number_of_cols]))
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
@@ -258,4 +253,4 @@ def paginate_help(page_number, loaded_plugins, prefix):
 # chal nikal 
 # gtfo
 # SED aagye aap😂
-'''
+
