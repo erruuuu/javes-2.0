@@ -64,8 +64,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         me = await client.get_me()
         if event.query.user_id == me.id and query.startswith("helpr"):
             rev_text = query[::-1]
-            dc = paginate_help(0, CMD_LIST, "helpr")
-            result = builder.article(" Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),buttons=dc,link_preview=False)
+            dc = paginate_help(0, CMD_HELP, "helpr")
+            result = builder.article(" Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_HELP)),buttons=dc,link_preview=False)
             await event.answer([result] if result else None)
         else:
               reply_pop_up_alert = "Please get your own Userbot😁😁"
@@ -80,7 +80,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 event.data_match.group(1).decode("UTF-8"))
             
             dc = paginate_help(
-                current_page_number + 1, CMD_LIST, "helpr")
+                current_page_number + 1, CMD_HELP, "helpr")
           
             await event.edit(buttons=dc)
         else:
@@ -98,7 +98,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             
             dc = paginate_help(
                 current_page_number - 1,
-                CMD_LIST,  # pylint:disable=E0602
+                CMD_HELP,  # pylint:disable=E0602
                 "helpr"
             )
             
@@ -135,7 +135,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         help_string = "Commands found in {}:\n".format(plugin_name)
         k = "💠🔮💎"
         u = 0
-        for i in CMD_LIST[plugin_name]:
+        for i in CMD_HELP[plugin_name]:
             u += 1
             help_string += str(k[u % 3]) + " " + i + "\n\n"
         if plugin_name in CMD_HELP:
