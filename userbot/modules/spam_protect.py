@@ -15,7 +15,7 @@ W_CHAT = set(int(x) for x in os.environ.get("WHITE_CHATS", "").split())
 if SPAM_PROTECT:
  @javes.on(events.ChatAction)
  async def handler(rkG): 
-   if rkG.user_joined or rkG.user_added and not rkG.chat_id in W_CHAT and SPAM_PROTECT and swapi and not event.is_private:
+   if rkG.user_joined or rkG.user_added and not rkG.chat_id in W_CHAT and SPAM_PROTECT and swapi and not rkG.is_private:
        chat = await rkG.get_chat()
        admin = chat.admin_rights
        creator = chat.creator   
