@@ -171,10 +171,5 @@ CMD_HELP.update({
 
 
 
-CMD_HELP.update({
-    "others":
-    "comming soon!\
-    \n you can see other help commands in @javes05 for now\
-"
-})
+
 
