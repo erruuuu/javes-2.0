@@ -159,7 +159,7 @@ if tebot:
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
-    if et not in CMD_HELP: 
+    if et not in CMD_HELP and et in CMD_LIST: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_LIST[et]), buttons=fci)
     else:
