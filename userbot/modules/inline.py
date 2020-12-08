@@ -13,7 +13,8 @@ from userbot import CMD_HELP,  client
 from userbot.javes_main.heroku_var import Config
 from telethon import Button, custom, events
 
-from userbot import CMD_LIST
+
+
 from userbot import tebot as tgbot
 from telethon.tl.custom import Button 
 from telethon import events
@@ -159,9 +160,6 @@ if tebot:
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
-    if et not in CMD_HELP and et in CMD_LIST: 
-          fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
-          await event.edit(str(CMD_LIST[et]), buttons=fci)
     else:
         try:
             darki()
@@ -330,8 +328,8 @@ def darki():
             me = await client.get_me()
             if event.query.user_id == me.id and query.startswith("helpr"):
                 rev_text = query[::-1]
-                dc = paginate_help(0, CMD_LIST, "helpr")
-                result = builder.article(" Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),buttons=dc,link_preview=False)
+                dc = paginate_help(0, CMD_HELP, "helpr")
+                result = builder.article(" Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_HELP)),buttons=dc,link_preview=False)
                 await event.answer([result] if result else None)
             else:
                   reply_pop_up_alert = "Please get your own Userbot😁😁"
@@ -346,7 +344,7 @@ def darki():
                     event.data_match.group(1).decode("UTF-8"))
                 
                 dc = paginate_help(
-                    current_page_number + 1, CMD_LIST, "helpr")
+                    current_page_number + 1, CMD_HELP, "helpr")
               
                 await event.edit(buttons=dc)
             else:
@@ -364,7 +362,7 @@ def darki():
                 
                 dc = paginate_help(
                     current_page_number - 1,
-                    CMD_LIST,  # pylint:disable=E0602
+                    CMD_HELP,  # pylint:disable=E0602
                     "helpr"
                 )
                 
@@ -401,7 +399,7 @@ def darki():
             help_string = "Commands found in {}:\n".format(plugin_name)
             k = "💠🔮💎"
             u = 0
-            for i in CMD_LIST[plugin_name]:
+            for i in CMD_HELP[plugin_name]:
                 u += 1
                 help_string += str(k[u % 3]) + " " + i + "\n\n"
             if plugin_name in CMD_HELP:
