@@ -156,8 +156,7 @@ if tebot:
         return await event.edit ("For Support, Report bugs & help @errorsender_bot", buttons=tbu, link_preview=False)   
     if et == "close":
         await event.edit("Help Menu Closed")
-    if et in ["backr({})".format(shivam),"closer","unload","load","{}_next({})".format(prefix, modulo_page),"{}_prev({})".format(prefix, modulo_page),"load({})".format(shivam_sh1vam),"unload({})".format(shivam_sh1vam)]:
-        darki()
+ 
     if et in CMD_HELP: 
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_HELP[et]), buttons=fci)
@@ -165,7 +164,10 @@ if tebot:
           fci = [[Button.inline('Go back', 'back'),Button.inline('❌ Close menu', b'close')]]            
           await event.edit(str(CMD_LIST[et]), buttons=fci)
     else:
-    	await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
+	try:
+		darki()
+	except:
+		await event.answer("Please Wait Sir,Or Try Other Btn", alert=True)
   except Exception as e:     
     	return await event.edit(str(e))
 
