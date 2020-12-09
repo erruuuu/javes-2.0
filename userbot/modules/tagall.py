@@ -11,18 +11,22 @@ from userbot import bot as javes
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "Hello"
+    shiv= event.text
+    shivam=shiv[8:]
+    mentions = f"{shivam}"
     chat = await event.get_input_chat()
     async for x in javes.iter_participants(chat, 100):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
     await event.edit(mentions)
 
 
-@javes.on(admin_cmd(pattern=r"administrator", outgoing=True))
+@javes.on(admin_cmd(pattern=r"admin", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "Administrators : "
+    shiv= event.text
+    shivam=shiv[7:]
+    mentions = f"{shivam}"
     chat = await event.get_input_chat()
     async for x in javes.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
