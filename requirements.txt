@@ -9,6 +9,7 @@ psutil
 cryptg
 async_generator
 jikanpy
+opencv-python--headless
 keyboard
 beautifulsoup4
 bs4
