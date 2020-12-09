@@ -8,6 +8,7 @@ import os, urllib, requests, re, asyncio
 from userbot.utils import admin_cmd
 from userbot import CMD_HELP, ALIVE_NAME
 from userbot import bot
+from userbot import bot as borg
 DARKCOBRA = os.environ.get("DEEP_AI", "quickstart-QUdJIGlzIGNvbWluZy4uLi4K")
 
 KANG_KAREGA_MC = str(ALIVE_NAME) if ALIVE_NAME else "nikal Mc"
