@@ -50,6 +50,9 @@ RUN apt-get install -y\
     recoverjpeg \
     zip \
     megatools \
+    axel \
+    procps \
+    policykit-1\
     libfreetype6-dev
 
 
