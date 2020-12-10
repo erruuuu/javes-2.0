@@ -1,3 +1,5 @@
+pip
+virtualenv
 setuptools
 wheel
 Pillow
