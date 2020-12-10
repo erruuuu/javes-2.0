@@ -58,7 +58,7 @@ RUN apt-get install -y\
 
 
 RUN pip3 install --upgrade pip setuptools 
-#RUN pip3 install --upgrade pip install wheel 
+RUN pip3 install --upgrade pip install wheel 
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi 
 RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi 
 RUN rm -r /root/.cache
@@ -71,7 +71,7 @@ RUN mv userbot/javes_main/extra/apktool /usr/local/bin
 RUN mv userbot/javes_main/extra/apktool.jar /usr/local/bin
 #RUN mv userbot/javes_main/extra/apk.rb /usr/share/metasploit-framework/lib/msf/core/payload
 RUN chmod +x /usr/local/bin/*
-RUN pip3 install -r requirements.txt
-#RUN python3 -m pip install --no-warn-script-location --no-cache-dir --upgrade -r requirements.txt
+#RUN pip3 install -r requirements.txt
+RUN python3 -m pip install --no-warn-script-location --no-cache-dir --upgrade -r requirements.txt
 #RUN sudo chmod o+r /usr/lib/python3/dist-packages/*
 CMD ["python3","-m","userbot"]
