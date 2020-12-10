@@ -1,7 +1,7 @@
 #For First fore line which is coded by https://github.com/sppidy thanks it prevented app suspention thanks bro
 FROM kalilinux/kali-rolling
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt upgrade -y && apt-get install sudo -y && sudo apt-get update  && sudo apt-get upgrade sudo && apt-get install apt-utils -y 
+RUN apt-get update && apt upgrade -y && apt-get install sudo -y && apt-get install apt-utils -y 
 RUN touch ~/.hushlogin
 RUN apt-get install -y\
     coreutils \
@@ -14,7 +14,7 @@ RUN apt-get install -y\
     g++ \
     git \
     #aria2 \
-    #util-linux \
+    util-linux \
     libevent-dev \
     libjpeg-dev \
     libffi-dev \
@@ -58,7 +58,7 @@ RUN apt-get install -y\
 
 
 RUN pip3 install --upgrade pip setuptools 
-RUN pip3 install --upgrade pip install wheel 
+#RUN pip3 install --upgrade pip install wheel 
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi 
 RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi 
 RUN rm -r /root/.cache
@@ -71,6 +71,7 @@ RUN mv userbot/javes_main/extra/apktool /usr/local/bin
 RUN mv userbot/javes_main/extra/apktool.jar /usr/local/bin
 #RUN mv userbot/javes_main/extra/apk.rb /usr/share/metasploit-framework/lib/msf/core/payload
 RUN chmod +x /usr/local/bin/*
-RUN python3 -m pip install --no-warn-script-location --no-cache-dir --upgrade -r requirements.txt
-RUN sudo chmod o+r /usr/lib/python3/dist-packages/*
+RUN pip3 install -r requirements.txt
+#RUN python3 -m pip install --no-warn-script-location --no-cache-dir --upgrade -r requirements.txt
+#RUN sudo chmod o+r /usr/lib/python3/dist-packages/*
 CMD ["python3","-m","userbot"]
