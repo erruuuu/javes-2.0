@@ -86,7 +86,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
                 await event.answer([resultm])
                 return
     if not event.query.user_id == me.id:
-        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-3.0  ",buttons=[[Button.switch_inline("Search Again", query="exec ", same_peer=True)],], )
         await event.answer([resultm])
         return
 
@@ -141,7 +141,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
                 await event.answer([resultm])
                 return
     if not event.query.user_id == me.id:
-        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-3.0  ",buttons=[[Button.switch_inline("Search Again", query="eval ", same_peer=True)],], )
         await event.answer([resultm])
         return
 @tgbot.on(events.InlineQuery(pattern=r"hash (.*)"))
@@ -178,7 +178,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             await event.answer([resultm])
             return
     if not event.query.user_id == me.id:
-        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-3.0  ",buttons=[[Button.switch_inline("Search Again", query="hash ", same_peer=True)],], )
         await event.answer([resultm])
         return
 @tgbot.on(events.InlineQuery(pattern=r"base64 (en|de) (.*)"))
@@ -204,6 +204,6 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             await event.answer([resultm])
             return
     if not event.query.user_id == me.id:
-        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-2.0  ",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
+        resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/Sh1vam/javes-3.0  ",buttons=[[Button.switch_inline("Search Again", query="base64 ", same_peer=True)],], )
         await event.answer([resultm])
         return

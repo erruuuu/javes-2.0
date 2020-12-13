@@ -468,7 +468,7 @@ async def repeat(rep):
 @javes05(outgoing=True, pattern="^\!repo$")
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        f"Click [here](https://telegra.ph/HOW-MAKE-JAVESTELEGRAM-USER-BOT-07-05) For make your own javes \n Repo : click [here](https://github.com/Sh1vam/javes-2.0)")
+        f"Click [here](https://telegra.ph/HOW-MAKE-JAVESTELEGRAM-USER-BOT-07-05) For make your own javes \n Repo : click [here](https://github.com/Sh1vam/javes-3.0)")
 
 @javes05(outgoing=True, pattern="^\!raw$")
 async def raw(event):
@@ -589,11 +589,7 @@ async def repeat(rep):
 
     await rep.reply(replyText)
 
-@javes.on(admin_cmd(pattern=f"repo$", allow_sudo=True))
-async def repo_is_here(wannasee):
-    """ For .repo command, just returns the repo URL. """
-    await wannasee.reply(
-        f"This bot just re-edit PaperplaneExtended  and added more features from unibot's plugin\n Click [here](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Frekcah-pavi%2Fjaves&template=https%3A%2F%2Fgithub.com%2Frekcah-pavi%2Fjaves) to open my javes\n =>Join channel for more information @javes05")
+
 
 
 @javes.on(admin_cmd(pattern=f"raw$", allow_sudo=True))

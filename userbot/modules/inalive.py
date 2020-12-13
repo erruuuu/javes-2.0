@@ -30,7 +30,7 @@ if TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = [
                 (
                     Button.url("Repo", "https://github.com/Sh1vam/javes-2.0"),
-                    Button.url("Deploy", "https://heroku.com/deploy?template=https://github.com/Sh1vam/javes-2.0/blob/master"),
+                    Button.url("Deploy", "https://heroku.com/deploy?template=https://github.com/Sh1vam/javes-3.0/blob/master"),
                     Button.url("String", "https://repl.it/@Javes786/Javes-20-String-session#main.py"),
                     Button.url("Channel", "https://t.me/plugines"),
                 )
@@ -51,7 +51,7 @@ if TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 )
             else:
                 result = builder.article(
-                    title="Javes 2.0",
+                    title="Javes 3.0",
                     text=query,
                     buttons=buttons,
                 )
